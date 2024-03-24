@@ -80,6 +80,7 @@ const emitWithHeartBeat = (() => {
             const wss = getWss()
             if (timer && wss.clients.size === 0) {
                 clearInterval(timer)
+                timer = null
             }
         }
     }
