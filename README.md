@@ -1,6 +1,8 @@
 # Pi Meter
+A simple Raspberry Pi 5 system monitoring tool build with Bun and React, which you can deploy with one Docker command.
 
-A simple Raspberry Pi 5 system monitoring tool build with Bun and React.
+![Screenshot 2024-09-28 at 12-53-46 Vite React TS](https://github.com/user-attachments/assets/43202d38-9316-4a11-af27-dc8b12038d7d)
+
 
 ## Deploy
 Run the following docker command to deploy Pi Meter on Pi 5
