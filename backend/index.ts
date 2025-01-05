@@ -41,16 +41,20 @@ const configForData = {
     }
 }
 const quietCat = async (path: string, grep?: string, _replace?: [string, string]) => {
-    let output = ""
-    if (grep) {
-        output = (await $`cat ${"/pi_host" + path} | grep "${grep}"`.quiet().text()).replaceAll("\n", "")
-    } else {
-        output = (await $`cat ${"/pi_host" + path}`.quiet().text()).replaceAll("\n", "")
+    try {
+        let output = ""
+        if (grep) {
+            output = (await $`cat ${"/pi_host" + path} | grep "${grep}"`.quiet().text()).replaceAll("\n", "")
+        } else {
+            output = (await $`cat ${"/pi_host" + path}`.quiet().text()).replaceAll("\n", "")
+        }
+        if (_replace) {
+            output = output.replace(_replace[0], _replace[1])
+        }
+        return output.replace('"', "").trim()
+    } catch (err) {
+        return ''
     }
-    if (_replace) {
-        output = output.replace(_replace[0], _replace[1])
-    }
-    return output.replace('"', "").trim()
 }
 const dataGetter = async () => {
     const data: any = {}
