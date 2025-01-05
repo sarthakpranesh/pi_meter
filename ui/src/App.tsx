@@ -7,7 +7,7 @@ const MEGA_HERTZ = 1000000
 const TEMP_CEL = 1000
 
 function App() {
-  const { sendMessage, lastMessage, readyState } = useWebSocket("ws://pi.home.lab:8011/socket");
+  const { sendMessage, lastMessage, readyState } = useWebSocket(`ws://${window.location.hostname}:8011/socket`);
 
   useEffect(() => {
     sendMessage("start")
